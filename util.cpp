@@ -302,7 +302,7 @@ int Util::keyboardMargins()
 
 bool Util::showVisualKeyPressFeedback()
 {
-    return settingsValue("ui/showVisualKeyPressFeedback", true).toBool();
+    return settingsValue("ui/showVisualKeyPressFeedback", false).toBool();
 }
 
 int Util::orientationMode()

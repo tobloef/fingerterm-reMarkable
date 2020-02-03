@@ -59,6 +59,8 @@ class Terminal : public QObject
 public:
     static const int defaultFgColor = 7;
     static const int defaultBgColor = 0;
+    static const int whiteThemeFgColor = 0;
+    static const int whiteThemeBgColor = 1;
 
     explicit Terminal(QObject *parent = 0);
     virtual ~Terminal() {}

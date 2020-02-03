@@ -287,7 +287,7 @@ void TextRender::redraw()
     if (buffer.size() != rect.size()) {
         buffer = QImage();
     }
-    painter.fillRect(rect, Qt::black);
+    painter.fillRect(rect, sUtil->whiteTheme() ? Qt::white : Qt::black);
     paint(&painter);
     EPFrameBuffer::sendUpdate(rect, EPFrameBuffer::Grayscale, EPFrameBuffer::PartialUpdate, false);
 //    update();

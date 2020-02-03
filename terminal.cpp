@@ -44,14 +44,14 @@ Terminal::Terminal(QObject *parent) :
     iShowCursor(true), iUseAltScreenBuffer(false), iAppCursorKeys(false)
 {
     zeroChar.c = ' ';
-    zeroChar.bgColor = defaultBgColor;
-    zeroChar.fgColor = defaultFgColor;
+    zeroChar.bgColor = iUtil->whiteTheme() ? whiteThemeBgColor : defaultBgColor;
+    zeroChar.fgColor = iUtil->whiteTheme() ? whiteThemeFgColor : defaultFgColor;
     zeroChar.attrib = 0;
 
     escape = -1;
 
-    iTermAttribs.currentFgColor = defaultFgColor;
-    iTermAttribs.currentBgColor = defaultBgColor;
+    iTermAttribs.currentFgColor = iUtil->whiteTheme() ? whiteThemeFgColor : defaultFgColor;
+    iTermAttribs.currentBgColor = iUtil->whiteTheme() ? whiteThemeBgColor : defaultBgColor;
     iTermAttribs.currentAttrib = 0;
     iTermAttribs.cursorPos = QPoint(0,0);
     iMarginBottom = 0;
@@ -846,8 +846,8 @@ void Terminal::ansiSequence(const QString& seq)
             }
 
             if(params.contains(0)) {
-                iTermAttribs.currentFgColor = defaultFgColor;
-                iTermAttribs.currentBgColor = defaultBgColor;
+                iTermAttribs.currentFgColor = iUtil->whiteTheme() ? whiteThemeFgColor : defaultFgColor;
+                iTermAttribs.currentBgColor = iUtil->whiteTheme() ? whiteThemeBgColor : defaultBgColor;
                 iTermAttribs.currentAttrib = attribNone;
             }
             if(params.contains(1))
@@ -884,12 +884,12 @@ void Terminal::ansiSequence(const QString& seq)
             }
 
             if(params.contains(39))
-                iTermAttribs.currentFgColor = defaultFgColor;
+                iTermAttribs.currentFgColor = iUtil->whiteTheme() ? whiteThemeFgColor : defaultFgColor;
             if(params.contains(49))
-                iTermAttribs.currentBgColor = defaultBgColor;
+                iTermAttribs.currentBgColor = iUtil->whiteTheme() ? whiteThemeBgColor : defaultBgColor;
         } else {
-            iTermAttribs.currentFgColor = defaultFgColor;
-            iTermAttribs.currentBgColor = defaultBgColor;
+            iTermAttribs.currentFgColor = iUtil->whiteTheme() ? whiteThemeFgColor : defaultFgColor;
+            iTermAttribs.currentBgColor = iUtil->whiteTheme() ? whiteThemeBgColor : defaultBgColor;
             iTermAttribs.currentAttrib = attribNone;
         }
         break;
@@ -1211,8 +1211,8 @@ void Terminal::resetTerminal()
     iAltBuffer.clear();
     iBackBuffer.clear();
 
-    iTermAttribs.currentFgColor = defaultFgColor;
-    iTermAttribs.currentBgColor = defaultBgColor;
+    iTermAttribs.currentFgColor = iUtil->whiteTheme() ? whiteThemeFgColor : defaultFgColor;
+    iTermAttribs.currentBgColor = iUtil->whiteTheme() ? whiteThemeBgColor : defaultBgColor;
     iTermAttribs.currentAttrib = 0;
     iTermAttribs.cursorPos = QPoint(1,1);
     iTermAttribs.wrapAroundMode = true;

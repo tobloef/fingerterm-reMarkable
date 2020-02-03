@@ -27,17 +27,17 @@ PopupWindow {
     Component {
         id: listDelegate
         Rectangle {
-            color: "#909090"
+            color: (util.whiteTheme ? "#707070" : "#909090")
             width: parent.width
             height: openButton.height+(4*window.pixelRatio)
             border.width: 1
-            border.color: "#ffffff"
+            border.color: (util.whiteTheme ? "#000000" : "#ffffff")
             radius: window.radiusSmall
             clip: true
 
             Text {
                 text: modelData
-                color: "#ffffff"
+                color: (util.whiteTheme ? "#000000" : "#ffffff")
                 anchors.verticalCenter: parent.verticalCenter
                 x: 8*window.pixelRatio
                 width: openButton.x - x
@@ -72,7 +72,7 @@ PopupWindow {
     Text {
         visible: urlWindow.urls.length == 0
         anchors.centerIn: parent
-        color: "#ffffff"
+        color: (util.whiteTheme ? "#000000" : "#ffffff")
         text: "No URLs"
         font.pointSize: window.uiFontSize + 4*window.pixelRatio
     }

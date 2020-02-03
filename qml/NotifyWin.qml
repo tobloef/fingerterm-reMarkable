@@ -35,7 +35,7 @@ PopupWindow {
         Text {
             anchors.centerIn: parent
 
-            color: "#ffffff"
+            color: (util.whiteTheme ? "#000000" : "#ffffff")
             text: notifyWin.text
             font.pointSize: window.uiFontSize
 

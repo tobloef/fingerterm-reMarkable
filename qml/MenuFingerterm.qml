@@ -31,7 +31,7 @@ Item {
     Rectangle {
         id: fader
 
-        color: "#000000"
+        color: (util.whiteTheme ? "#ffffff" : "#000000")
         opacity: menuWin.showing ? 0.5 : 0.0
         anchors.fill: parent
 
@@ -45,7 +45,7 @@ Item {
     Rectangle {
         id: rect
 
-        color: "#e0e0e0"
+        color: (util.whiteTheme ? "#1f1f1f" : "#e0e0e0")
         anchors.left: parent.right
         anchors.leftMargin: menuWin.showing ? -width : 1
         width: flickableContent.width + 22*window.pixelRatio;
@@ -89,7 +89,7 @@ Item {
             width: window.scrollBarWidth
             height: menuFlickArea.visibleArea.heightRatio*menuFlickArea.height
             radius: 3*window.pixelRatio
-            color: "#202020"
+            color: (util.whiteTheme ? "#dedede" : "#202020")
         }
 
         Flickable {
@@ -159,15 +159,15 @@ Item {
                             width: window.buttonWidthLarge
                             height: window.buttonHeightLarge
                             radius: window.radiusSmall
-                            color: "#606060"
-                            border.color: "#000000"
+                            color: (util.whiteTheme ? "#9e9e9e" : "#606060")
+                            border.color: (util.whiteTheme ? "#ffffff" : "#000000")
                             border.width: 1
 
                             Column {
                                 Text {
                                     width: window.buttonWidthLarge
                                     height: window.headerHeight
-                                    color: "#ffffff"
+                                    color: (util.whiteTheme ? "#000000" : "#ffffff")
                                     font.pointSize: window.uiFontSize-1
                                     text: "Font size"
                                     horizontalAlignment: Text.AlignHCenter
@@ -198,15 +198,15 @@ Item {
                             width: window.buttonWidthLarge
                             height: window.buttonHeightLarge
                             radius: window.radiusSmall
-                            color: "#606060"
-                            border.color: "#000000"
+                            color: (util.whiteTheme ? "#9e9e9e" : "#606060")
+                            border.color: (util.whiteTheme ? "#ffffff" : "#000000")
                             border.width: 1
 
                             Column {
                                 Text {
                                     width: window.buttonWidthLarge
                                     height: window.headerHeight
-                                    color: "#ffffff"
+                                    color: (util.whiteTheme ? "#000000" : "#ffffff")
                                     font.pointSize: window.uiFontSize-1
                                     text: "UI Orientation"
                                     horizontalAlignment: Text.AlignHCenter
@@ -240,15 +240,15 @@ Item {
                             width: window.buttonWidthLarge
                             height: window.buttonHeightLarge
                             radius: window.radiusSmall
-                            color: "#606060"
-                            border.color: "#000000"
+                            color: (util.whiteTheme ? "#9e9e9e" : "#606060")
+                            border.color: (util.whiteTheme ? "#ffffff" : "#000000")
                             border.width: 1
 
                             Column {
                                 Text {
                                     width: window.buttonWidthLarge
                                     height: window.headerHeight
-                                    color: "#ffffff"
+                                    color: (util.whiteTheme ? "#000000" : "#ffffff")
                                     font.pointSize: window.uiFontSize-1
                                     text: "Drag mode"
                                     horizontalAlignment: Text.AlignHCenter
@@ -293,15 +293,15 @@ Item {
                             width: window.buttonWidthLarge
                             height: window.buttonHeightLarge
                             radius: window.radiusSmall
-                            color: "#606060"
-                            border.color: "#000000"
+                            color: (util.whiteTheme ? "#9e9e9e" : "#606060")
+                            border.color: (util.whiteTheme ? "#ffffff" : "#000000")
                             border.width: 1
 
                             Column {
                                 Text {
                                     width: window.buttonWidthLarge
                                     height: window.headerHeight
-                                    color: "#ffffff"
+                                    color: (util.whiteTheme ? "#000000" : "#ffffff")
                                     font.pointSize: window.uiFontSize-1
                                     text: "VKB behavior"
                                     horizontalAlignment: Text.AlignHCenter
@@ -381,14 +381,14 @@ Item {
                     width: menuBlocksRow.width
                     height: window.buttonHeightLarge
                     radius: window.radiusSmall
-                    color: "#606060"
-                    border.color: "#000000"
+                    color: (util.whiteTheme ? "#9e9e9e" : "#606060")
+                    border.color: (util.whiteTheme ? "#ffffff" : "#000000")
                     border.width: 1
 
                     Text {
                         width: parent.width
                         height: window.headerHeight
-                        color: "#ffffff"
+                        color: (util.whiteTheme ? "#000000" : "#ffffff")
                         font.pointSize: window.uiFontSize-1
                         text: "VKB delay: " + vkbDelaySlider.keyboardFadeOutDelay + " ms"
                         horizontalAlignment: Text.AlignHCenter
@@ -399,7 +399,7 @@ Item {
                         width: menuBlocksRow.width - window.paddingMedium
                         height: window.paddingMedium
                         radius: window.radiusSmall
-                        color: "#909090"
+                        color: (util.whiteTheme ? "#707070" : "#909090")
                     }
                     Rectangle {
                         id: vkbDelaySlider
@@ -410,7 +410,7 @@ Item {
                         width: window.buttonWidthSmall
                         radius: window.radiusLarge
                         height: parent.height-window.headerHeight
-                        color: "#202020"
+                        color: (util.whiteTheme ? "#dedede" : "#202020")
                         onXChanged: {
                             if (vkbDelaySliderMA.drag.active)
                                 vkbDelaySlider.keyboardFadeOutDelay =

@@ -26,9 +26,9 @@ Rectangle {
 
     width: window.width
     height: window.height
-    color: "#000000"
+    color: (util.whiteTheme ? "#ffffff" : "#000000")
     y: -height
-    border.color: "#c0c0c0"
+    border.color: (util.whiteTheme ? "#404040" : "#c0c0c0")
     border.width: 1
     radius: window.radiusMedium
 

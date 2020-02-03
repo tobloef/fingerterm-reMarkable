@@ -23,7 +23,8 @@ Rectangle {
     id: button
 
     property string text
-    property string textColor: "#ffffff"
+    property string textColorBlack: "#ffffff"
+    property string textColorWhite: "#000000"
     property bool enabled: true
     property bool highlighted
 
@@ -32,9 +33,10 @@ Rectangle {
 
     signal clicked()
 
-    color: btnMouseArea.pressed ? "#ffffff"
-                                : highlighted ? "#606060" : "#202020"
-    border.color: "#303030"
+    color: btnMouseArea.pressed ? (util.whiteTheme ? "#000000" : "#ffffff")
+                                : highlighted ? (util.whiteTheme ? "#9e9e9e" : "#606060")
+                                              : (util.whiteTheme ? "#dedede" : "#202020")
+    border.color: (util.whiteTheme ? "#cfcfcf" : "#303030")
     border.width: 1
     radius: window.radiusSmall
     clip: true
@@ -48,12 +50,12 @@ Rectangle {
         anchors.fill: parent
         font.pointSize: 46*window.pixelRatio
         text: "$"
-        color: "#305030"
+        color: util.whiteTheme ? "#68b068" : "#305030"
     }
 
     Text {
         text: button.text
-        color: button.enabled ? button.textColor : "#606060"
+        color: button.enabled ? (util.whiteTheme ? button.textColorWhite : button.textColorBlack) : (util.whiteTheme ? "#9e9e9e" : "#606060")
         anchors.centerIn: parent
         // avoid warnings on startup by protection against 0 size
         font.pointSize: window.uiFontSize > 0 ? window.uiFontSize : 12

@@ -27,10 +27,14 @@ Item {
     property Key currentStickyPressed
     property Key currentKeyPressed
 
-    property string keyFgColor: "#ffffff"
-    property string keyBgColor: "#202020"
-    property string keyHilightBgColor: "#ffffff"
-    property string keyBorderColor: "#303030"
+    property string keyFgColorBlack: "#ffffff"
+    property string keyFgColorWhite: "#000000"
+    property string keyBgColorBlack: "#202020"
+    property string keyBgColorWhite: "#dedede"
+    property string keyHilightBgColorBlack: "#ffffff"
+    property string keyHilightBgColorWhite: "#000000"
+    property string keyBorderColorBlack: "#303030"
+    property string keyBorderColorWhite: "#cfcfcf"
 
     property int feedbackDuration: 150
 
@@ -100,11 +104,11 @@ Item {
 
         visible: _key || visualFeedbackDelay.running
         radius: window.radiusSmall
-        color: keyFgColor
+        color: util.whiteTheme ? keyFgColorWhite : keyFgColorBlack
 
         Text {
             id: label
-            color: keyBgColor
+            color: util.whiteTheme ? keyBgColorWhite : keyBgColorBlack
             font.pointSize: 8*window.pixelRatio
             anchors.centerIn: parent
         }

@@ -302,7 +302,7 @@ int Util::keyboardMargins()
 
 bool Util::whiteTheme()
 {
-    return settingsValue("ui/whiteTheme", false).toBool();
+    return settingsValue("ui/whiteTheme", true).toBool();
 }
 
 int Util::orientationMode()

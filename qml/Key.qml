@@ -39,8 +39,12 @@ Rectangle {
 
     width: window.width/12   // some default
     height: window.height/8 < 55*window.pixelRatio ? window.height/8 : 55*window.pixelRatio
-    color: label=="" ? "transparent" : (isClick || keyPressHighlight.running ? keyboard.keyHilightBgColor : keyboard.keyBgColor)
-    border.color: label=="" ? "transparent" : keyboard.keyBorderColor
+    color: label=="" ? "transparent"
+                     : (isClick || keyPressHighlight.running ? (util.whiteTheme ? keyboard.keyHilightBgColorWhite
+                                                                                : keyboard.keyHilightBgColorBlack)
+                                                             : (util.whiteTheme ? keyboard.keyBgColorWhite
+                                                                                : keyboard.keyBgColorBlack))
+    border.color: label=="" ? "transparent" : (util.whiteTheme ? keyboard.keyBorderColorWhite : keyboard.keyBorderColorBlack)
     border.width: 1
     radius: window.radiusSmall
 
@@ -64,7 +68,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
 
             text: key.label_alt
-            color: keyboard.keyFgColor
+            color: (util.whiteTheme ? keyboard.keyFgColorWhite : keyboard.keyFgColorBlack)
 
             opacity: key.labelOpacity * (highlighted ? 1.0 : 0.2)
             Behavior on opacity { NumberAnimation { duration: 100 } }
@@ -92,7 +96,7 @@ Rectangle {
                 return key.label;
             }
 
-            color: keyboard.keyFgColor
+            color: (util.whiteTheme ? keyboard.keyFgColorWhite : keyboard.keyFgColorBlack)
 
             opacity: key.labelOpacity * (highlighted ? 1.0 : 0.2)
             Behavior on opacity { NumberAnimation { duration: 100 } }
@@ -106,7 +110,7 @@ Rectangle {
     Rectangle {
         id: stickIndicator
         visible: sticky && stickiness>0
-        color: keyboard.keyHilightBgColor
+        color: (util.whiteTheme ? keyboard.keyHilightBgColorWhite : keyboard.keyHilightBgColorBlack)
         anchors.fill: parent
         radius: key.radius
         opacity: 0.5

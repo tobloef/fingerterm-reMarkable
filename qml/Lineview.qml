@@ -32,9 +32,9 @@ Rectangle {
     property bool show
 
     y: show ? 0 : -(height+window.paddingSmall)
-    color: "#404040"
+    color: (util.whiteTheme ? "#bfbfbf" : "#404040")
     border.width: 2
-    border.color: "#909090"
+    border.color: (util.whiteTheme ? "#707070" : "#909090")
     radius: window.radiusSmall
     width: parent.width
     height: lineTextCol.height + 8*window.pixelRatio
@@ -54,7 +54,7 @@ Rectangle {
         width: cursorWidth
         height: cursorHeight
         color: "transparent"
-        border.color: "#ffffff"
+        border.color: (util.whiteTheme ? "#000000" : "#ffffff")
         border.width: 1
     }
 
@@ -73,7 +73,7 @@ Rectangle {
                 height: fontHeightHack.height
                 width: lineTextCol.width
                 Text {
-                    color: "#ffffff"
+                    color: (util.whiteTheme ? "#000000" : "#ffffff")
                     font.family: util.fontFamily
                     font.pointSize: lineView.fontPointSize
                     text: modelData

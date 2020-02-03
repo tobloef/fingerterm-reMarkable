@@ -27,17 +27,17 @@ PopupWindow {
     Component {
         id: listDelegate
         Rectangle {
-            color: util.keyboardLayout === modelData ? "#909090" : "#404040"
+            color: util.keyboardLayout === modelData ? (util.whiteTheme ? "#707070" : "#909090") : (util.whiteTheme ? "#bfbfbf" : "#404040")
             width: parent.width
             height: selectButton.height+4*window.pixelRatio
             border.width: 1
-            border.color: "#ffffff"
+            border.color: (util.whiteTheme ? "#000000" : "#ffffff")
             radius: window.radiusSmall
             clip: true
 
             Text {
                 text: modelData
-                color: "#ffffff"
+                color: (util.whiteTheme ? "#000000" : "#ffffff")
                 anchors.verticalCenter: parent.verticalCenter
                 x: 8*window.pixelRatio
                 width: selectButton.x - x
@@ -64,7 +64,7 @@ PopupWindow {
         id: titleText
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        color: "#ffffff"
+        color: (util.whiteTheme ? "#000000" : "#ffffff")
         text: "Keyboard layout"
         font.pointSize: window.uiFontSize + 4*window.pixelRatio;
     }

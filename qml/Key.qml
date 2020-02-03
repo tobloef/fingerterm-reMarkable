@@ -38,7 +38,7 @@ Rectangle {
     property bool shiftActive: (keyboard.keyModifiers & Qt.ShiftModifier) && !sticky
 
     width: window.width/12   // some default
-    height: window.height/8 < 55*window.pixelRatio ? window.height/8 : 55*window.pixelRatio
+    height: 100 * window.pixelRatio
     color: label=="" ? "transparent" : (isClick || keyPressHighlight.running ? keyboard.keyHilightBgColor : keyboard.keyBgColor)
     border.color: label=="" ? "transparent" : keyboard.keyBorderColor
     border.width: 1
